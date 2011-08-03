@@ -1,4 +1,4 @@
-require 'beautiful_code/guarrada'
+require 'beautiful_code/converter'
 
 module BeautifulCode
   class << self
