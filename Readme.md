@@ -1,6 +1,6 @@
 #beautiful_code
 
-BeautifulCode is a lightweight gem aimed at saving the world.
+BeautifulCode is a lightweight gem used to convert any file to a BMP image.
 
 ##Install
 
@@ -13,7 +13,7 @@ Or in your Gemfile:
 
 ##Usage
 
-(usage instructions)
+(TODO)
 
 
 ##Under the hood
