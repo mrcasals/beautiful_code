@@ -6,13 +6,13 @@ class Converter
     @output = output
 
     @scale_factor = options[:scale_factor] || 5
-    @desired_length = options[:desired_length] || 3
+    @desired_length = options[:desired_length] || nil
   end
   def solve
-    # Set variables
-    # input = "hello ma123456789" * 5
-
+    # Get initial array
     input_array = @input.bytes.to_a
+
+    #Gat max and min values from array
     max = input_array.max
     min = input_array.min
 
@@ -26,7 +26,7 @@ class Converter
 
     # Ensure last element is a pixel
     last_element = input_array.pop
-    last_element.fill(0, (last_element.length..(@desired_length-1)))
+    last_element.fill(0, (last_element.length..2))
     input_array << last_element
 
     #Fix color scale
@@ -39,13 +39,12 @@ class Converter
     end
 
     # Make columns
-    sqrt = Math.sqrt(input_array.length).to_i
-    input_array = input_array.each_slice(sqrt).to_a
+    @desired_length ||= Math.sqrt(input_array.length).to_i
+    input_array = input_array.each_slice(@desired_length).to_a
 
     # Ensure equal length for all columns
     last_element = input_array.pop
-    desired_length = sqrt
-    last_element.fill([0,0,0], (last_element.length..(desired_length-1)))
+    last_element.fill([0,0,0], (last_element.length..(@desired_length-1)))
     input_array << last_element
 
     # Multiply columns
