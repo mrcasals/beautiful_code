@@ -71,10 +71,6 @@ class Converter
     height = input_array.first.length
     width = input_array.length
 
-    # pp input_array
-    # puts width
-    # puts height
-
     # Create image
     img = Magick::Image.new(width, height)
 
